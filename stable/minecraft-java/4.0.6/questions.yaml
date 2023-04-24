@@ -187,6 +187,8 @@ questions:
                                               description: FTBA
                                             - value: CURSEFORGE
                                               description: Curseforge
+                                            - value: AUTO_CURSEFORGE
+                                              description: Auto CurseForge
                                             - value: QUILT
                                               description: Quilt
                                             - value: PUFFERFISH
