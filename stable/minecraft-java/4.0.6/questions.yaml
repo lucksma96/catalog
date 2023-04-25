@@ -444,20 +444,6 @@ questions:
                                               schema:
                                                 type: boolean
                                                 default: false
-                                      - variable: CF_SET_LEVEL_FROM
-                                        label: Set LEVEL to saves directory
-                                        description: "Some modpacks come with world/save data via a worlds file and/or the overrides provided with the modpack. Either approach can be selected to set the LEVEL to the resulting saves directory by setting CF_SET_LEVEL_FROM."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          enum:
-                                            - value: WORLD_FILE
-                                              description: World File
-                                            - value: OVERRIDES
-                                              description: Overrides
-                                            - value: ""
-                                              description: Default
-                                          show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]]
                                       - variable: advanced_auto_curseforge
                                         label: Advanced Auto CurseForge configurations
                                         schema:
@@ -466,16 +452,30 @@ questions:
                                           show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]]
                                           show_subquestions_if: true
                                           subquestions:
-                                            - variable: CF_PARALLEL_DOWNLOADS
-                                              label: How many parallel mod downloads to perform
-                                              schema:
-                                                type: int
-                                                default: 4
                                             - variable: CF_OVERRIDES_SKIP_EXISTING
                                               label: Skip files in the overrides that already exist in the data directory
                                               schema:
                                                 type: boolean
                                                 default: false
+                                            - variable: CF_PARALLEL_DOWNLOADS
+                                              label: How many parallel mod downloads to perform
+                                              schema:
+                                                type: int
+                                                default: 4
+                                            - variable: CF_SET_LEVEL_FROM
+                                              label: Saves directory
+                                              description: "Some modpacks come with world/save data via a worlds file and/or the overrides provided with the modpack. Either approach can be selected to set the LEVEL to the resulting saves directory."
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                enum:
+                                                  - value: WORLD_FILE
+                                                    description: World File
+                                                  - value: OVERRIDES
+                                                    description: Overrides
+                                                  - value: ""
+                                                    description: Default
+                                          show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]] 
                                       - variable: DIFFICULTY
                                         label: Difficulty
                                         schema:
